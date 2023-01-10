@@ -1,40 +1,62 @@
+import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:kilo_takibi_getx/home.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:kilo_takibi_getx/pages/loading.dart';
 
-void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.black));
 
-  runApp( MyApp());
+
+main() async {
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-
-  MaterialColor mycolor = MaterialColor(0xFFFFFF00, <int, Color>{
-    50:  Color(0xFFFFFF00),
-    100: Color(0xFFFFFF00),
-    200: Color(0xFFFFFF00),
-    300: Color(0xFFFFFF00),
-    400: Color(0xFFFFFF00),
-    500: Color(0xFFFFFF00),
-    600: Color(0xFFFFFF00),
-    700: Color(0xFFFFFF00),
-    800: Color(0xFFFFFF00),
-    900: Color(0xFFFFFF00),
-  },
-  );
+class MyApp extends StatefulWidget {
   MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late StreamSubscription<User?> user;
+
+   void initState() {
+    super.initState();
+
+    loadingScreen();
+
+     user = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    user.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: mycolor,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: loadingScreen()
     );
   }
 }
+
+
+

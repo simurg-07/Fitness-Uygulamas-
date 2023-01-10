@@ -19,39 +19,32 @@ class recordListTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 8),
         child: ListTile(
-          leading: _buildDate(),
-          title: _buildWeight(),
-          trailing: _buildIcons(),
+          leading: Text(DateFormat("EE, MM, d").format(record.dateTime)),
+          title: Center(
+              child: Text(
+                "${record.weight}",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              )),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.edit),
+                color: Colors.grey,
+              ),
+              IconButton(
+                onPressed: () {
+                  _controller.deleteRecord(record);
+                },
+                icon: Icon(Icons.delete),
+                color: Colors.red,
+              ),
+              Text(record.note.toString())
+            ],
+          ),
         ),
       ),
     );
-  }
+  }}
 
-  Row _buildIcons() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.edit),
-          color: Colors.grey,
-        ),
-        IconButton(
-          onPressed: () {
-            _controller.deleteRecord(record);
-          },
-          icon: Icon(Icons.delete),
-          color: Colors.red,
-        )
-      ],
-    );
-  }
-
-  Center _buildWeight() => Center(
-          child: Text(
-        "${record.weight}",
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ));
-
-  Text _buildDate() => Text(DateFormat("EEE, MMM, d").format(record.dateTime));
-}

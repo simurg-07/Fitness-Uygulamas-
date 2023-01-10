@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kilo Takibi Getx</string>
+	<string>RanFit</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -47,5 +47,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Need to uploadimage</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Need to upload image</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need to upload image</string>
 </dict>
 </plist>

@@ -1,22 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-class _clipPath extends StatelessWidget {
-  const _clipPath({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: MyClipper(),
-      child: Container(
-        width: double.infinity,
-        height: 300,
-        color: Colors.amber,
-
-      ),
-    );
-  }
-}
 
 class MyClipper extends CustomClipper<Path>{
 

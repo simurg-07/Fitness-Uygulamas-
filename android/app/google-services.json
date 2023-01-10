@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "809731669891",
+    "firebase_url": "https://kilotakibi-9ccbd-default-rtdb.firebaseio.com",
+    "project_id": "kilotakibi-9ccbd",
+    "storage_bucket": "kilotakibi-9ccbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809731669891:android:6a337898d9a945b6e600b6",
+        "android_client_info": {
+          "package_name": "com.omer_koc.kilo_takibi_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809731669891-gchhk8dfge2c6eq635gvi11m2lolent0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMAwWq_Aer3OrheBafh9LyAxtbmCr_SpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809731669891-gchhk8dfge2c6eq635gvi11m2lolent0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
